@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+
+  --color-primary-navy: #064e3b;
+  --color-secondary-blue: #0d9488;
+  --color-accent-gold: #f59e0b;
+  --color-bg-light: #f0f9f9;
+  --color-bg-white: #FFFFFF;
+  --color-bg-dark: #042f2e;
+  --color-text-main: #134e4a;
+  --color-text-muted: #5e7e7e;
+
+  --animate-slow-zoom: slow-zoom 20s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes slow-zoom {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-light text-text-main font-sans antialiased selection:bg-teal-600 selection:text-white;
+    line-height: 1.6;
+  }
+
+  /* Respect user's reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Skip to main content link */
+.skip-link {
+  @apply absolute -top-12 left-4 bg-accent-gold text-white px-4 py-2 rounded-b-lg z-[100] font-semibold text-sm;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  @apply top-0;
+}
+
+.section-padding {
+  @apply py-24 md:py-32;
+}
+
+.card-shadow {
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.1);
+}
+
+.glass-header {
+  @apply bg-white/95 backdrop-blur-md border-b border-slate-200/50;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-navy to-secondary-blue;
+}
+
+.gold-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-amber-300 via-amber-500 to-amber-600;
+}
+
+/* UI Pro Max Refinement Utilities */
+.premium-blur {
+  @apply bg-white/70 backdrop-blur-xl border border-white/20;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
