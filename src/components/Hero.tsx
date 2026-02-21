@@ -35,7 +35,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-6">
             <TrustIcon className="w-4 h-4 text-amber-500" />
             <span className="text-[10px] font-bold text-white uppercase tracking-[0.2em]">
-              {config.brand.location}'s Finest Since {config.brand.establishmentYear}
+              Established {config.brand.establishmentYear} • {config.brand.location}
             </span>
           </div>
 
